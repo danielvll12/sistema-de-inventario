@@ -84,3 +84,4 @@ if __name__ == '__main__':
     init_db()  # crea la BD si no existe
     app.run()
 
+    init_db()
