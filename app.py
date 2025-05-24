@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 # Ruta a la base de datos
-DB_PATH = os.path.join(os.path.dirname(__file__), 'database', 'inventario.db')
+DB_PATH = os.path.join(os.path.dirname(__file__), 'inventario.db')
 
 # Crear base de datos si no existe
 def init_db():
@@ -79,7 +79,8 @@ def eliminar(id):
         conn.commit()
     return redirect(url_for('index'))
 
-if __name__ == '__main__':
-    app.run()
 
+if __name__ == '__main__':
+    init_db()  # crea la BD si no existe
+    app.run()
 
