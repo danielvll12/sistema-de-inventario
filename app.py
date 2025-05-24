@@ -7,6 +7,7 @@ app = Flask(__name__)
 # Ruta a la base de datos
 DB_PATH = os.path.join(os.path.dirname(__file__), 'inventario.db')
 
+
 # Crear base de datos si no existe
 def init_db():
     with sqlite3.connect(DB_PATH) as conn:
