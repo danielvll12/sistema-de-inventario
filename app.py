@@ -22,6 +22,9 @@ def init_db():
         ''')
         conn.commit()
 
+# Ejecutar siempre, incluso en producción (Render)
+init_db()
+
 @app.route('/')
 def index():
     with sqlite3.connect(DB_PATH) as conn:
@@ -79,9 +82,6 @@ def eliminar(id):
         conn.commit()
     return redirect(url_for('index'))
 
-
 if __name__ == '__main__':
-    init_db()  # crea la BD si no existe
     app.run()
 
-    init_db()
